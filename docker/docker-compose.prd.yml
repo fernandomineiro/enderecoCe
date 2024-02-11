@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  nscendereco:
+    volumes: 
+      - vol-endereco:/logs 
+    deploy:
+        resources:
+            limits:
+              cpus: 4.00
+              memory: 3072M
+
+
+volumes:
+  vol-endereco:
+    driver_opts: 
+      type: "nfs"
+      o: "addr=nfs-siscom.sistemas.cesan.com.br,nolock,soft,rw"
+      device: ":/nfs/nsc/endereco/logs"
+
